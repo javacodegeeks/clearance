@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark background -->
+  <rect width="32" height="32" fill="#0a0a0a" rx="4"/>
+
+  <!-- Left bracket -->
+  <path d="M 9 8 L 7 8 L 7 24 L 9 24" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="square"/>
+
+  <!-- Checkmark -->
+  <path d="M 12 16 L 15 20 L 21 12" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right bracket -->
+  <path d="M 23 8 L 25 8 L 25 24 L 23 24" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="square"/>
+</svg>

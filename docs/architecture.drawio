@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram name="Clearance - System Architecture" id="clearance-arch-v1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- TITLE                                                    -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="title" value="Clearance — AI-Powered PR Review Dashboard — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=18;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="1600" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 1: BROWSER / CLIENT                               -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="layer1-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="50" y="55" width="1600" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-label" value="⬛  BROWSER / CLIENT LAYER  (Next.js 16 / React 19 — Tailwind CSS 4)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=13;fontColor=#0050a0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="58" width="700" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- UI Pages -->
+        <mxCell id="ui-prqueue" value="&lt;b&gt;PR Queue Dashboard&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Risk-sorted PR list&lt;br/&gt;Real-time NDJSON stream&lt;br/&gt;Filter by risk / author&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="95" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-prdetail" value="&lt;b&gt;PR Detail + AI Chat&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Missions checklist&lt;br/&gt;Tool-calling chat agent&lt;br/&gt;File diffs &amp; annotations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="95" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-settings" value="&lt;b&gt;Settings Page&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;GitHub PAT input&lt;br/&gt;Azure OpenAI credentials&lt;br/&gt;SonarQube token&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="95" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-trends" value="&lt;b&gt;Trends &amp; Analytics&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;PR velocity (Recharts)&lt;br/&gt;Author activity metrics&lt;br/&gt;Review turnaround time&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="800" y="95" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-governance" value="&lt;b&gt;Code Governance&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;SonarQube quality gates&lt;br/&gt;Local pattern violations&lt;br/&gt;Security / perf anti-patterns&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="95" width="210" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-risk" value="&lt;b&gt;Risk Assessment Engine&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Multi-factor scoring&lt;br/&gt;File criticality weights&lt;br/&gt;auth/security +3× / tests −4×&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="95" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Browser Storage -->
+        <mxCell id="storage-idb" value="&lt;b&gt;IndexedDB&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;AI conversations&lt;br/&gt;Review missions + tasks&lt;br/&gt;Mission cache (per PR+repo)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="250" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="storage-ls" value="&lt;b&gt;localStorage&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;XOR+Base64 credentials&lt;br/&gt;Settings (cache TTL, poll)&lt;br/&gt;Watched repositories list&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="250" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lib-constants" value="&lt;b&gt;lib/constants&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;AI system prompts&lt;br/&gt;TOOL_SCHEMAS (6 tools)&lt;br/&gt;Pattern detection rules&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="820" y="250" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lib-hooks" value="&lt;b&gt;lib/hooks&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;useAutoGeneration&lt;br/&gt;useAbortController&lt;br/&gt;Stream parsing hooks&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="250" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 2: NEXT.JS API ROUTES                             -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="layer2-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="50" y="460" width="1600" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-label" value="⬛  NEXT.JS SERVER — API ROUTES  (Node.js 20 — Thin Proxy Pattern)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=13;fontColor=#5b2d8e;" vertex="1" parent="1">
+          <mxGeometry x="60" y="463" width="700" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- API Middleware -->
+        <mxCell id="middleware" value="&lt;b&gt;API Middleware&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;extractCredentials()&lt;br/&gt;Validates + unpacks&lt;br/&gt;creds per request&lt;br/&gt;(no server-side storage)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="500" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- GitHub API Routes -->
+        <mxCell id="route-github" value="&lt;b&gt;GitHub Routes&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;GET /api/github/prs-stream&lt;br/&gt;GET /api/github/repos&lt;br/&gt;POST /api/github/pr/risk&lt;br/&gt;POST /api/github/pr/missions&lt;br/&gt;POST /api/github/pr/complete&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="310" y="490" width="230" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- AI Routes -->
+        <mxCell id="route-ai" value="&lt;b&gt;AI Routes&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;POST /api/ai/chat-with-tools&lt;br/&gt;&lt;br/&gt;Agent loop:&lt;br/&gt;max 5 tool calls / 3 iterations&lt;br/&gt;Streams NDJSON (SSE)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="490" width="230" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- SonarQube Routes -->
+        <mxCell id="route-sonar" value="&lt;b&gt;SonarQube Routes&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;POST /api/sonarqube/config&lt;br/&gt;GET  /api/sonarqube/quality-gate&lt;br/&gt;GET  /api/sonarqube/violations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="870" y="490" width="240" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Analytics Routes -->
+        <mxCell id="route-analytics" value="&lt;b&gt;Analytics Routes&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;GET /api/analytics/trends&lt;br/&gt;&lt;br/&gt;PR velocity, author&lt;br/&gt;metrics, review time&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="490" width="230" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 3: EXTERNAL SERVICES                              -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="layer3-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="745" width="1600" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-label" value="⬛  EXTERNAL SERVICES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=13;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="60" y="748" width="400" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- GitHub API -->
+        <mxCell id="ext-github" value="&lt;b&gt;GitHub API&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;@octokit/rest v22&lt;br/&gt;Pull Requests &amp; Reviews&lt;br/&gt;CI/CD status checks&lt;br/&gt;Comments &amp; file diffs&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#24292e;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="790" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Azure OpenAI -->
+        <mxCell id="ext-openai" value="&lt;b&gt;Azure OpenAI&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;openai SDK v6&lt;br/&gt;GPT-4 with function calling&lt;br/&gt;Mission generation&lt;br/&gt;Chat-with-tools agent&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#0078d4;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="790" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- SonarQube -->
+        <mxCell id="ext-sonar" value="&lt;b&gt;SonarQube&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;REST API&lt;br/&gt;Quality gate status&lt;br/&gt;Code violations&lt;br/&gt;Coverage metrics&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cb4043;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="790" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- AI TOOL SCHEMAS LEGEND BOX                              -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="tool-legend" value="&lt;b&gt;AI Tool Schemas (TOOL_SCHEMAS)&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px&apos;&gt;• search_changed_files&lt;br/&gt;• get_mission_status&lt;br/&gt;• analyze_file_complexity&lt;br/&gt;• get_ci_status&lt;br/&gt;• check_test_coverage&lt;br/&gt;• validate_patterns&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="490" width="200" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: tool legend → route-ai -->
+        <mxCell id="a-toolschema" value="defines" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d79b00;dashed=1;endArrow=open;endFill=0;" edge="1" source="tool-legend" target="route-ai" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- ARROWS: UI ↔ Browser Storage                            -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="a-prdetail-idb" value="read/write" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;endArrow=block;startArrow=block;startFill=0;endFill=0;" edge="1" source="ui-prdetail" target="storage-idb" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-settings-ls" value="save creds" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;" edge="1" source="ui-settings" target="storage-ls" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-risk-prqueue" value="risk score" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;" edge="1" source="ui-risk" target="ui-prqueue" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- ARROWS: Browser → API Routes                            -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="a-prqueue-github" value="NDJSON stream" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;" edge="1" source="ui-prqueue" target="route-github" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-prdetail-ai" value="SSE stream" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;" edge="1" source="ui-prdetail" target="route-ai" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-governance-sonar" value="REST" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;" edge="1" source="ui-governance" target="route-sonar" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-trends-analytics" value="REST" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;" edge="1" source="ui-trends" target="route-analytics" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Credentials flow: localStorage → API routes (via request headers) -->
+        <mxCell id="a-ls-middleware" value="creds in headers" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;dashed=1;" edge="1" source="storage-ls" target="middleware" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-middleware-github" value="validates" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#9673a6;dashed=1;" edge="1" source="middleware" target="route-github" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- ARROWS: API Routes → External Services                  -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="a-routegithub-extgithub" value="HTTPS/REST" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#24292e;" edge="1" source="route-github" target="ext-github" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-routeai-extopenai" value="HTTPS/JSON" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0078d4;" edge="1" source="route-ai" target="ext-openai" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-routesonar-extsonar" value="HTTPS/REST" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#cb4043;" edge="1" source="route-sonar" target="ext-sonar" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-routeanalytics-extgithub" value="PR history" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#24292e;dashed=1;" edge="1" source="route-analytics" target="ext-github" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LEGEND                                                   -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="legend-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="790" width="200" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="&lt;b&gt;Legend&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="795" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="UI Page / Feature" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="820" width="160" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Browser Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="850" width="160" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="API Route / Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="880" width="160" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="Risk Engine (client-side)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="910" width="160" height="24" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
